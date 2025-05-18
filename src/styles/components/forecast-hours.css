@@ -1,0 +1,28 @@
+.forecast-hours-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  overflow: auto;
+  width: calc(100vw - 3.6rem);
+}
+.forecast-hours-box .forecast-list {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1.2rem;
+}
+.forecast-hours-box .forecast-list .forecast-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem;
+  min-width: 10rem;
+}
+
+@media screen and (min-width: 768px) {
+  .forecast-hours-box {
+    max-width: 65vw;
+    width: auto;
+  }
+}

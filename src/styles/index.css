@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url(icons/icons.css);
+@import url(components/loading-screen.css);
+@import url(components/headers.css);
+@import url(components/current-weather.css);
+@import url(components/forecast-days.css);
+@import url(components/today-highlights.css);
+@import url(components/forecast-hours.css);
+@import url(components/footer.css); 
+
+:root {
+  --outline: #3e3d40;
+  --bg: #131214;
+  --on-bg: #eae6f2;
+  --primary: #b5a1e5;
+  --on-primary: #100e17;
+  --surface: #1d1c1f;
+  --on-surface: #dddae5;
+  --on-surface-variant: #7b7980;
+  --on-surface-variant-2: #b9b6bf;
+  --white: hsl(0, 0%, 100%);
+  --white-alpha-4: hsla(0, 0%, 100%, 0.04);
+  --white-alpha-8: hsla(0, 0%, 100%, 0.08);
+  --black-alpha-10: hsla(0, 0%, 0%, 0.1);
+
+  --bg-aqi-1: #89e589;
+  --on-bg-aqi-1: #1f331f;
+  --bg-aqi-2: #e5dd89;
+  --on-bg-aqi-2: #33311f;
+  --bg-aqi-3: #e5c089;
+  --on-bg-aqi-3: #332b1f;
+  --bg-aqi-4: #e58989;
+  --on-bg-aqi-4: #331f1f;
+  --bg-aqi-5: #e589b7;
+  --on-bg-aqi-5: #331f29;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--bg);
+  color: var(--on-bg);
+  font-size: 16px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+}
+button {
+  border: none;
+  font: inherit;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+input {
+  border: none;
+  font: inherit;
+  background: none;
+  color: inherit;
+  outline: none;
+}
+sup {
+  vertical-align: top;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--white-alpha-8);
+  border-radius: 100vw;
+}
+.app-container {
+  width: 100%;
+  max-width: 160rem;
+  margin: 0 auto;
+  padding-inline: 1.7rem;
+  padding-block: 2rem;
+}
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.box {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  min-height: 100px;
+}
+.main-box {
+  border-radius: 2.8rem;
+  padding: 2rem;
+}
+.sub-box {
+  border-radius: 1.6rem;
+  padding: 1.4rem;
+}
+.box-title {
+  font-size: 1.8rem;
+  margin-block-end: 1.2rem;
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 768px) {
+  .app-container {
+    padding: 3rem;
+  }
+  .content-wrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .content-wrapper .col:nth-child(2) {
+    grid-column: span 2;
+  }
+  .main-box {
+    padding: 2.4rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .content-wrapper {
+    gap: 4rem;
+  }
+  .main-box {
+    padding: 3.6rem;
+  }
+}

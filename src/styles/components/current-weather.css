@@ -1,0 +1,46 @@
+.current-weather-box .current-weather {
+  display: flex;
+  align-items: center;
+}
+.current-weather-box .degree {
+  color: var(--white);
+  font-size: 5.6rem;
+  line-height: 1.1;
+}
+.current-weather-box .weather-icon {
+  margin-inline: auto;
+}
+.weather-description {
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  margin-block: 1.6rem;
+}
+.current-meta-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  margin-block-start: 1.6rem;
+  padding-block-start: 1.6rem;
+  border-block-start: 1px solid var(--outline);
+}
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.meta-text {
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  text-transform: capitalize;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .current-weather-box .weather-icon {
+    width: 6rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .current-weather-box .degree {
+    font-size: 7rem;
+  }
+}

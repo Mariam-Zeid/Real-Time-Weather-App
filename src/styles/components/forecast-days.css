@@ -1,0 +1,54 @@
+.forecast-days-box .forecast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.forecast-days-box .forecast-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.forecast-days-box .degree {
+  font-size: 1.8rem;
+}
+.forecast-days-box .forecast-weather {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.forecast-days-box .day-forecast-date {
+  display: flex;
+  flex: 1;
+}
+.forecast-days-box .forecast-text {
+  color: var(--on-surface-variant);
+  font-size: 1.4rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: end;
+  text-transform: capitalize;
+}
+
+@media (min-width: 768px) {
+  .forecast-days-box .forecast-item:not(:last-child) {
+    padding-bottom: 1.6rem;
+  }
+  .forecast-days-box .day-forecast-date {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+@media (min-width: 992px) {
+  .forecast-days-box .forecast-item:not(:last-child) {
+    padding-bottom: 0;
+  }
+  .forecast-days-box .day-forecast-date {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1200px) {
+  .forecast-card .box-title,
+  .forecast-days-box .degree {
+    font-size: 2.2rem;
+  }
+}
