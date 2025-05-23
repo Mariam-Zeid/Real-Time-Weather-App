@@ -1,20 +1,27 @@
-export default function ForecastItem() {
+export default function ForecastItem({ day }) {
+  const date = new Date(day.dt * 1000);
+  const formatedDate = `${date.getDate()} ${date.toLocaleString("en", {
+    month: "short",
+  })}`;
+  const dayName = new Intl.DateTimeFormat("en", { weekday: "long" }).format(
+    date
+  );
   return (
     <div className="forecast-item">
       <div className="forecast-weather">
         <img
-          src={`imgs/weather_icons/02d.png`}
-          alt="weather icon"
+          src={`imgs/weather_icons/${day.weather[0].icon}.png`}
+          alt={day.weather[0].description}
           width="36"
           height="36"
         />
         <p className="degree">
-          25&deg;<sup>c</sup>
+          {Math.ceil(day.main.feels_like)}&deg;<sup>c</sup>
         </p>
       </div>
       <div className="day-forecast-date">
-        <p className="forecast-text">15 May</p>
-        <p className="forecast-text">Wednesday</p>
+        <p className="forecast-text">{formatedDate}</p>
+        <p className="forecast-text">{dayName}</p>
       </div>
     </div>
   );

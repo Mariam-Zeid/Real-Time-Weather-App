@@ -27,11 +27,15 @@ const stats = [
     htmlUnit: "°",
   },
 ];
-export default function Stats() {
+export default function Stats({ statsData: data }) {
   return (
     <div className="stats-list">
       {stats.map((item, index) => (
-        <StatsCard key={index} {...item} statsNumber="20" />
+        <StatsCard
+          key={index}
+          {...item}
+          statsNumber={data[item.name] || data.main[item.name]}
+        />
       ))}
     </div>
   );

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import AirInfoItem from "./AirInfoItem";
+import { useFetchData } from "../../../../hooks/useFetchData";
 import Loading from "../../../Loading Screen/Loading";
+import ErrorMessage from "../../../Error Message/ErrorMessage";
+import AirInfoItem from "./AirInfoItem";
 
 export const AIR_QUALITY_INDEX_TEXT = {
   1: {
@@ -53,14 +54,21 @@ const atmosphericComponents = [
   },
 ];
 
-export default function AirQualityCard() {
+export default function AirQualityCard({ coords }) {
+  const airPollutionEndPoint = `data/2.5/air_pollution?lat=${coords.lat}&lon=${coords.lon}&units=metric`;
+  const { data, status, errorMessage } = useFetchData(airPollutionEndPoint);
+  if (status === "loading" || status === "pending") return <Loading />;
+  if (status === "error") return <ErrorMessage errorMessage={errorMessage} />;
+
+  const aqi = data.list && data.list[0].main.aqi;
+
   return (
     <div className="air-quality-card sub-box">
       <p
-        className={`badge aqi-${1} label-1`}
-        title={AIR_QUALITY_INDEX_TEXT[1].message}
+        className={`badge aqi-${aqi} label-1`}
+        title={AIR_QUALITY_INDEX_TEXT[aqi].message}
       >
-        {AIR_QUALITY_INDEX_TEXT[1].level}
+        {AIR_QUALITY_INDEX_TEXT[aqi].level}
       </p>
       <h3 className="sub-title">air quality index</h3>
       <div className="air-info-wrapper">
@@ -71,7 +79,7 @@ export default function AirQualityCard() {
               key={index}
               title={item.title}
               subtitle={item.subtitle}
-              value="20"
+              value={data.list[0].components[item.unit]}
             />
           ))}
         </div>
