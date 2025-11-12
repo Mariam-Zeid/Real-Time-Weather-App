@@ -3,10 +3,10 @@ import SearchButton from "./components/SearchButton";
 import SearchHeader from "./components/SearchHeader";
 import SearchResults from "./components/SearchResults";
 
-export default function Search({ setCoords }) {
+export default function Search() {
   const [isViewOpen, setView] = useState(false);
   const [searchResult, setSearchedResult] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // Moved here 👈
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleToggleView = () => {
     setView((prev) => !prev);
@@ -23,7 +23,6 @@ export default function Search({ setCoords }) {
           setSearchQuery={setSearchQuery}
         />
         <SearchResults
-          setCoords={setCoords}
           setView={setView}
           searchResult={searchResult}
           setSearchQuery={setSearchQuery} // pass to clear input

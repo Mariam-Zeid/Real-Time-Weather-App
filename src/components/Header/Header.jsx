@@ -2,12 +2,12 @@ import Logo from "./components/Logo";
 import Search from "../Search/Search";
 import LocationBtn from "./components/Location";
 
-export default function Header({ setCoords }) {
+export default function Header() {
   return (
     <header className="header">
       <Logo />
-      <Search setCoords={setCoords} />
-      <LocationBtn setCoords = { setCoords }/>
+      <Search />
+      <LocationBtn />
     </header>
   );
 }

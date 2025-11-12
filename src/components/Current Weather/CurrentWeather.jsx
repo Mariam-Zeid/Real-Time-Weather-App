@@ -1,8 +1,10 @@
 import { useFetchData } from "../../hooks/useFetchData";
 import Loading from "../Loading Screen/Loading";
 import ErrorMessage from "../Error Message/ErrorMessage";
+import { useCoords } from "../../hooks/useCoords";
 
-export default function CurrentWeather({ coords }) {
+export default function CurrentWeather() {
+  const {coords} = useCoords();
   const currentWeatherEndPoint = `data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=metric`;
   const { data, status, errorMessage } = useFetchData(currentWeatherEndPoint);
   

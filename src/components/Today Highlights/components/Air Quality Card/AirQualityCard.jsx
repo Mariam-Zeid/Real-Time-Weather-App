@@ -2,6 +2,7 @@ import { useFetchData } from "../../../../hooks/useFetchData";
 import Loading from "../../../Loading Screen/Loading";
 import ErrorMessage from "../../../Error Message/ErrorMessage";
 import AirInfoItem from "./AirInfoItem";
+import { useCoords } from "../../../../hooks/useCoords";
 
 export const AIR_QUALITY_INDEX_TEXT = {
   1: {
@@ -54,7 +55,8 @@ const atmosphericComponents = [
   },
 ];
 
-export default function AirQualityCard({ coords }) {
+export default function AirQualityCard() {
+  const { coords } = useCoords();
   const airPollutionEndPoint = `data/2.5/air_pollution?lat=${coords.lat}&lon=${coords.lon}&units=metric`;
   const { data, status, errorMessage } = useFetchData(airPollutionEndPoint);
   if (status === "loading" || status === "pending") return <Loading />;

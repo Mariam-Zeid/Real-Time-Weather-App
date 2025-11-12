@@ -1,13 +1,15 @@
+import { useCoords } from "../../../hooks/useCoords";
+
 export default function SearchItem({
-  setCoords,
   setView,
   searchItem,
   setSearchQuery,
 }) {
+  const { setCoords } = useCoords();
   const handleClick = (e) => {
     e.preventDefault();
     setCoords({ lat: searchItem.lat, lon: searchItem.lon });
-    setSearchQuery(""); // 👈 Clear input
+    setSearchQuery("");
     setView(false);
   };
 

@@ -1,9 +1,11 @@
+import { useCoords } from "../../hooks/useCoords";
 import { useFetchData } from "../../hooks/useFetchData";
 import ErrorMessage from "../Error Message/ErrorMessage";
 import Loading from "../Loading Screen/Loading";
 import ForecastItem from "./ForecastItem";
 
-export default function ForecastDays({ coords }) {
+export default function ForecastDays() {
+  const { coords } = useCoords();
   const forecastEndPoint = `data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&units=metric`;
   const { data, status, errorMessage } = useFetchData(forecastEndPoint);
   if (status === "loading" || status === "pending") return <Loading />;
